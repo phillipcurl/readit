@@ -1,0 +1,11 @@
+<article *ngIf="instance && instance.data && idx !== 0" class="box">
+  <div>
+    <div style="display: inline;">{{ instance.data.score }}</div>
+    <span><a href="https://www.reddit.com/user/{{ instance.data.author }}" target="_blank">{{ instance.data.author }}</a></span>
+  </div>
+  <h2><a href="{{ instance.data.url }}" target="_blank">{{ instance.data.title }}</a></h2>
+  <div>{{ instance.data.subreddit }}</div>
+  <!--<div>{{ instance.data.link_flair_text }}</div>-->
+  <a href="https://www.reddit.com{{ instance.data.permalink }}" target="_blank">View on Reddit</a>
+  <!--<pre>{{ instance.data | json }}</pre>-->
+</article>

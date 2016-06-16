@@ -5,6 +5,7 @@
     "selenium-webdriver": "registry:dt/selenium-webdriver#2.44.0+20160317120654"
   },
   "ambientDependencies": {
+    "localforage": "//github.com/DefinitelyTyped/DefinitelyTyped/blob/master/localForage/localForage.d.ts",
     "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654"
   }
 }

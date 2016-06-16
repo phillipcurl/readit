@@ -1,3 +1,40 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="nav" style="padding: 0 15px; margin-bottom: 0;">
+  <div class="container level">
+    <div class="level-left">
+      <div class="level-item">
+        <p class="subtitle is-5">
+          <strong>Readit</strong>
+        </p>
+      </div>
+      <!--<div class="level-item">
+        <p class="control has-addons">
+          <input class="input" type="text" placeholder="Find a post">
+          <button class="button">
+            Search
+          </button>
+        </p>
+      </div>-->
+    </div>
+    <div class="level-right">
+      <p class="level-item"><strong>Feed</strong></p>
+      <p class="level-item"><a>Streams</a></p>
+      <p class="level-item"><a>Create a Stream</a></p>
+      <p class="level-item"><a class="button is-primary">Sign Up</a></p>
+      <p class="level-item"><a class="button is-outlined is-primary">Login</a></p>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Readit</strong> by <a href="http://phillipcurl.com" target="_blank">Phillip Curl</a>. The 
+        <a href="http://github.com/phillipcurl" target="_blank">source code</a> is licensed 
+        <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>.
+      </p>
+    </div>
+  </div>
+</footer>

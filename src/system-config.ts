@@ -3,10 +3,18 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'moment': 'vendor/moment/moment.js',
+  'localforage': 'vendor/localforage/localforage.js'
 };
 
 /** User packages configuration. */
 const packages: any = {
+  'moment': {
+    format: 'cjs'
+  },
+  'localforage': {
+    format: 'cjs'
+  }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -29,6 +37,11 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'app/shared/models',
+  'app/shared/services',
+  'app/shared/components',
+  'app/shared/components/post',
+  'app/+feed',
   /** @cli-barrel */
 ];
 

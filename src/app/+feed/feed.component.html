@@ -1,0 +1,79 @@
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Feed
+      </h1>
+      <h2 class="subtitle">
+        Search subreddits and create streams
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section box">
+  <div class="container">
+    <form (submit)="searchSubreddit()" class="control has-addons">
+      <input [(ngModel)]="subRedditSearch" [class.is-disabled]="isLoading" class="input is-expanded" type="text" placeholder="Enter a subreddit (eg. technology)">
+      <button class="button is-primary" [class.is-loading]="isLoading" type="submit">
+        <!--<span class="icon">
+          <i class="fa fa-search"></i>
+        </span>-->
+        <span>Search</span>
+      </button>
+    </form>
+  </div>
+</section>
+
+<div class="container is-fluid columns">
+  <div *ngIf="subreddits.length > 0" class="column is-2">
+    <aside class="menu">
+      <p class="menu-label">
+        Recent Searches:
+      </p>
+      <ul class="menu-list">
+        <li *ngFor="let subreddit of subreddits; let idx = index">
+          <a (click)="searchPrevious(subreddit)">{{ subreddit }}<i (click)="removeFilter(idx)" class="fa fa-times" style="float:right;"></i></a>
+        </li>
+      </ul>
+      <!--<p class="menu-label">
+        Administration
+      </p>
+      <ul class="menu-list">
+        <li><a href="#">Team Settings</a></li>
+        <li>
+          <a class="is-active" href="#">Manage Your Team</a>
+          <ul>
+            <li><a href="#">Members</a></li>
+            <li><a href="#">Plugins</a></li>
+            <li><a href="#">Add a member</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Invitations</a></li>
+        <li><a href="#">Authentication</a></li>
+      </ul>-->
+    </aside>
+  </div>
+  <div class="column">
+    <div class="content">
+
+      <div *ngIf="!isLoading && serviceData" *ngFor="let instance of serviceData; let idx = index">
+        <article *ngIf="instance && instance.data && idx !== 0" class="box" style="margin-bottom: 20px;">
+          <h2>
+            <span class="tag is-primary">{{ instance.data.score }}</span>
+            <a href="{{ instance.data.url }}" target="_blank">{{ instance.data.title }}</a>
+          </h2>
+          <p>By: <a href="https://www.reddit.com/user/{{ instance.data.author }}" target="_blank">{{ instance.data.author }}</a></p>
+          <div>{{ instance.data.subreddit }}</div>
+          <div>{{ instance.data.link_flair_text }}</div>
+          <a href="https://www.reddit.com{{ instance.data.permalink }}" target="_blank">View on Reddit</a>
+          <!--<pre>{{ instance.data | json }}</pre>-->
+        </article>
+      </div>
+
+      <div *ngIf="!isLoading && errorMessage" class="notification is-warning">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</div>

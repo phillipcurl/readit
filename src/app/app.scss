@@ -1,0 +1,12 @@
+html, body {
+    overflow: auto;
+}
+
+.fa-times {
+    padding: 5px;
+    
+    &:hover {
+        cursor: pointer;
+        color: red;
+    }
+}
